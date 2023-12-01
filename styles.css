@@ -1,6 +1,12 @@
 * {
     font-family: sans-serif;
 }
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
  
 
 #tier-list-template {
@@ -86,4 +92,20 @@
     height: fit-content;
     width: 100%;
     text-align: center;
+}
+
+#reset {
+    background-color: rgb(50, 50, 50);
+    color: white;
+    width: 150px;
+    height: 50px;
+    border: 1px solid rgb(50, 50, 50);
+    margin: 10px auto 10px auto;
+    font-size: 1.3em;
+}
+
+#reset:hover {
+    background-color: white;
+    color: rgb(50, 50, 50);
+    border: 3px solid rgb(50, 50, 50);
 }

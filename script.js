@@ -13,6 +13,9 @@ const ids = [
     "tarkington",
     "owen"]
 
+//Set the action of the reset button
+document.getElementById("reset").onclick = resetElements;
+
 //Position the elements so that they do not overlap
 resetElements();
 
@@ -22,7 +25,7 @@ for (let i = 0; i < ids.length; i++) {
 }
 
 function resetElements() {
-    let currY = 650;
+    let currY = 725;
     let count = 0;
     for (let i = 0; i < ids.length; i++) {
         if ((25 + 125 * i + 100) > window.innerWidth) {
