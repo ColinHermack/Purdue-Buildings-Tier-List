@@ -11,10 +11,21 @@ const ids = [
     "honors-college",
     "wiley",
     "tarkington",
-    "owen"]
+    "owen",
+    "pmu",
+    "stewart-center",
+    "math-building",
+    "beering",
+    "armstrong",
+    "university-hall",
+    "elliot",
+    "krannert",
+    "rawls",
+    "cl50"]
 
-//Set the action of the reset button
+//Set the action of the reset button and save button
 document.getElementById("reset").onclick = resetElements;
+document.getElementById("save").onclick = saveAsPDF;
 
 //Position the elements so that they do not overlap
 resetElements();
@@ -24,11 +35,17 @@ for (let i = 0; i < ids.length; i++) {
     dragElement(document.getElementById(ids[i]));
 }
 
+//Save the tier list as a pdf
+function saveAsPDF() {
+    element = document.getElementById('tier-list-template');
+    html2pdf(element);
+}
+
 function resetElements() {
     let currY = 725;
     let count = 0;
     for (let i = 0; i < ids.length; i++) {
-        if ((25 + 125 * i + 100) > window.innerWidth) {
+        if ((25 + 125 * count + 100) > window.innerWidth) {
             currY += 125;
             count = 0;
         }

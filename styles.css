@@ -94,7 +94,7 @@ main {
     text-align: center;
 }
 
-#reset {
+#controls button {
     background-color: rgb(50, 50, 50);
     color: white;
     width: 150px;
@@ -102,9 +102,11 @@ main {
     border: 1px solid rgb(50, 50, 50);
     margin: 10px auto 10px auto;
     font-size: 1.3em;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
-#reset:hover {
+#controls button:hover {
     background-color: white;
     color: rgb(50, 50, 50);
     border: 3px solid rgb(50, 50, 50);
