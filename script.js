@@ -37,7 +37,7 @@ for (let i = 0; i < ids.length; i++) {
 
 //Save the tier list as a pdf
 function saveAsPDF() {
-    element = document.getElementById('tier-list-template');
+    element = document.getElementById('tier-list-content');
     html2pdf(element);
 }
 
