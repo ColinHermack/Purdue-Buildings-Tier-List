@@ -1,5 +1,39 @@
-//Make elements
-dragElement(document.getElementById("mccutcheon"));
+const ids = [
+    "mccutcheon",
+    "hillenbrand", 
+    "harrison", 
+    "earhart", 
+    "shreve", 
+    "first-street", 
+    "meredith",
+    "meredith-south",
+    "windsor",
+    "honors-college",
+    "wiley",
+    "tarkington",
+    "owen"]
+
+//Position the elements so that they do not overlap
+resetElements();
+
+//Make elements draggable
+for (let i = 0; i < ids.length; i++) {
+    dragElement(document.getElementById(ids[i]));
+}
+
+function resetElements() {
+    let currY = 650;
+    let count = 0;
+    for (let i = 0; i < ids.length; i++) {
+        if ((25 + 125 * i + 100) > window.innerWidth) {
+            currY += 125;
+            count = 0;
+        }
+        document.getElementById(ids[i]).style.top = currY + "px";
+        document.getElementById(ids[i]).style.left = (25 + 125 * count) + "px";
+        count ++;
+    }
+}
 
 function dragElement(elmnt) {
     var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0
