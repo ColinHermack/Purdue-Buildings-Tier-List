@@ -21,7 +21,15 @@ const ids = [
     "elliot",
     "krannert",
     "rawls",
-    "cl50"]
+    "cl50",
+    "corec",
+    "walc",
+    "lawson",
+    "winifred-parker",
+    "frieda-parker",
+    "lily",
+    "armory",
+    "felix-haas"]
 
 //Set the action of the reset button and save button
 document.getElementById("reset").onclick = resetElements;
