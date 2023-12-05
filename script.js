@@ -88,6 +88,7 @@ const majors = [
     'Mechanical Engineering',
     'Microbiology',
     'Music',
+    'Natural Resources and Environmental Science',
     'Nuclear Engineering',
     'Nursing',
     'Nutrition',
