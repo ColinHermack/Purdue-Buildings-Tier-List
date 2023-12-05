@@ -13,8 +13,12 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js" integrity="sha512-YcsIPGdhPK4P/uRW6/sruonlYj+Q7UHWeKfTAkBW+g83NKM+jMJFJ4iAPfSnVp7BKD4dKMHmVSvICUbE/V1sSw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <main>
             <div id="controls">
-                <button id="reset">Reset</button>
-                <button id="save">Save</button>
+                <button id="reset" class="controller">Reset</button>
+                <div id="selectors">
+                    <button class="selected" id="building-selector">Buildings</button>
+                    <button class="unselected" id="majors-selector">Majors</button>
+                </div>
+                <button id="save" class="controller">Save</button>
             </div>
             <div id="tier-list-content">
                 <div id="tier-list-template">

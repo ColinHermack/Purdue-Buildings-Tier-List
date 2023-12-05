@@ -31,9 +31,85 @@ const ids = [
     "armory",
     "felix-haas"]
 
-//Set the action of the reset button and save button
+const majors = [
+    'Accounting',
+    'Actuarial Science',
+    'Aerospace Eng',
+    'AET',
+    'African American Studies',
+    'Agricultural Engineering',
+    'Agronomy',
+    'Airline Management',
+    'Animal Science',
+    'Anthropology',
+    'Art History',
+    'Artificial Intelligence (Liberal Arts)',
+    'Artificial Intelligence (Science)',
+    'Biochemistry',
+    'Biology',
+    'Biomedical Engineering',
+    'BAME',
+    'Chemical Engineering',
+    'Chemistry',
+    'Civil Engineering',
+    'Communication',
+    'Computer and Information Technology',
+    'Computer Engineering',
+    'Computer Science',
+    'Crop Sciene',
+    'Cybersecurity',
+    'Data Science',
+    'Economics',
+    'Electrical Engineering',
+    'Elementary Education',
+    'English',
+    'Environmental Engineering',
+    'Exploratory Studies',
+    'Farm Management',
+    'Fermentation Science',
+    'Finance',
+    'Professional Flight',
+    'French',
+    'Genetics',
+    'German',
+    'History',
+    'Hospitality and Tourism Management',
+    'Industrial Engineering',
+    'Japanese',
+    'Jewish Studies',
+    'Kinesiology',
+    'Criminology',
+    'Liguistics',
+    'Management',
+    'Marketing',
+    'Mathematics',
+    'Applied Mathematics',
+    'Mathematics Education',
+    'Mechanical Engineering',
+    'Microbiology',
+    'Music',
+    'Nuclear Engineering',
+    'Nursing',
+    'Nutrition',
+    'Pharmaceutical Sciences',
+    'Physics',
+    'Plant Science',
+    'Political Science',
+    'Public Health',
+    'Religious Studies',
+    'Russian',
+    'Sociology',
+    'Spanish',
+    'Statistics',
+    'Theatre',
+    "Women's, Gender, and Sexuality Studies"
+]    
+
+//Set the action of the reset button, save button, and selector buttons
 document.getElementById("reset").onclick = resetElements;
 document.getElementById("save").onclick = saveAsPDF;
+document.getElementById("building-selector").onclick = changeToBuildings;
+document.getElementById("majors-selector").onclick = changeToMajors;
 
 //Position the elements so that they do not overlap
 resetElements();
@@ -41,6 +117,51 @@ resetElements();
 //Make elements draggable
 for (let i = 0; i < ids.length; i++) {
     dragElement(document.getElementById(ids[i]));
+}
+
+function changeToBuildings() {
+    document.getElementById("building-selector").classList.replace("unselected", "selected");
+    document.getElementById("majors-selector").classList.replace("selected", "unselected");
+    location.reload();
+}
+
+function changeToMajors() {
+    document.getElementById("majors-selector").classList.replace("unselected", "selected");
+    document.getElementById("building-selector").classList.replace("selected", "unselected");
+    const majorElements = document.getElementsByClassName("tier-item")
+    for (let i = 0; i < majorElements.length; i++) {
+        majorElements[i].style.display = "none";
+    }
+    //Clear existing content
+    let currY = 725;
+    let count = 0;
+    for (let i = 0; i < majors.length; i++) {
+        if ((25 + 125 * count + 100) > window.innerWidth) {
+            currY += 125;
+            count = 0;
+        }
+        let newElement = document.createElement("div")
+        dragElement(newElement);
+        newElement.textContent = majors[i];
+        newElement.id = majors[i];
+        newElement.classList.add("major-container");
+        newElement.style.position = "absolute";
+        newElement.style.top = currY + "px";
+        newElement.style.left = (25 + 125 * count) + "px";
+
+        document.getElementById("tier-list-content").appendChild(newElement);
+
+        count ++;
+    }
+    /*
+    document.getElementById("building-selector").classList.replace("selected", "unselected");
+    document.getElementById("majors-selector").classList.replace("unselected", "selected");
+    const majorElements = document.getElementsByClassName("tier-item")
+    for (let i = 0; i < majorElements.length; i++) {
+        majorElements[i].style.display = "block";
+    }
+    resetElements();
+    */
 }
 
 //Save the tier list as a pdf
@@ -57,6 +178,7 @@ function resetElements() {
             currY += 125;
             count = 0;
         }
+        document.getElementById(ids[i]).style.width = "100px";
         document.getElementById(ids[i]).style.top = currY + "px";
         document.getElementById(ids[i]).style.left = (25 + 125 * count) + "px";
         count ++;

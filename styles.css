@@ -94,7 +94,12 @@ main {
     text-align: center;
 }
 
-#controls button {
+#controls {
+    display: flex;
+    flex-direction: row;
+}
+
+.controller {
     background-color: rgb(50, 50, 50);
     color: white;
     width: 150px;
@@ -106,8 +111,51 @@ main {
     margin-right: 10px;
 }
 
-#controls button:hover {
+.controller :hover {
     background-color: white;
     color: rgb(50, 50, 50);
     border: 3px solid rgb(50, 50, 50);
+}
+
+#selectors {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 200px;
+}
+
+.selected {
+    background-color: white;
+    color: rgb(50, 50, 50);
+    width: 50%;
+    font-size: 1.3em;
+    height: 50px;
+    border: none;
+    border: 3px solid rgb(50, 50, 50);
+}
+
+.unselected {
+    background-color: rgb(50, 50, 50);
+    color: white;
+    width: 50%;
+    font-size: 1.3em;
+    height: 50px;
+    border: none;
+}
+
+.unselected:hover {
+    background-color: white;
+    color: rgb(50, 50, 50);
+    border: 3px solid rgb(50, 50, 50);
+}
+
+.major-container {
+    width: 100px;
+    background-color: black;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
 }
