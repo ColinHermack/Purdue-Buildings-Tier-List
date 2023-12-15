@@ -111,7 +111,7 @@ main {
     margin-right: 10px;
 }
 
-.controller :hover {
+.controller:hover {
     background-color: white;
     color: rgb(50, 50, 50);
     border: 3px solid rgb(50, 50, 50);
